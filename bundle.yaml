@@ -1,0 +1,10 @@
+services:
+  k8s:
+    charm: local:trusty/k8s
+    num_units: 3
+    expose: true
+  etcd:
+    charm: cs:trusty/etcd
+    num_units: 1
+relations:
+  - ['k8s:etcd', 'etcd:client']
